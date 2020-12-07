@@ -11,7 +11,7 @@
 #include <deque>
 #include <mutex>
 #include <thread>
-#include "msg_type.h"
+#include "msg_type.hpp"
 #define MAXBUFFERSIZE 10000
 using namespace std;
 using namespace cv;

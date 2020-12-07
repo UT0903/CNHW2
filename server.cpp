@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <dirent.h>
-#include "msg_type.h"
+#include "msg_type.hpp"
 
 using namespace std;
 using namespace cv;
@@ -44,7 +44,12 @@ int main(int argc, char ** argv){
     }
     //fprintf(stderr, "size of MESSAGE: %lu\n", sizeof(MESSAGE));
     struct sockaddr_in clientAddr;                              
-
+    if(!file_exist ("server_folder")){
+        if(mkdir("server_folder", S_IRWXU) != 0){
+            fprintf(stderr, "Error in newServerDir()\n");
+            exit(0);
+        }
+    }
     init_server((unsigned short) atoi(argv[1]));
 
     fd_set master;
